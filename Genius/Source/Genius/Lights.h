@@ -28,6 +28,10 @@ private:
 	UPROPERTY(EditAnywhere)
 		class UPaperSprite* LightSprite;
 
+
+	UPROPERTY(EditAnywhere)
+		class UPaperSprite* OffLight;
+
 	UPROPERTY(EditAnywhere)
 		int Index;
 

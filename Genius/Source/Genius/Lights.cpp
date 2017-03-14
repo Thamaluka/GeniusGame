@@ -4,6 +4,7 @@
 #include "Lights.h"
 #include "PaperSpriteComponent.h"
 #include "PaperSprite.h"
+#include "MyPawn.h"
 
 
 // Sets default values
@@ -13,7 +14,7 @@ ALights::ALights()
 	PrimaryActorTick.bCanEverTick = true;
 
 	Sprite = CreateDefaultSubobject<UPaperSpriteComponent>(TEXT("Sprite"));
-	Sprite->SetSprite(LightSprite);
+	Sprite->SetSprite(OffLight);
 	Sprite->OnInputTouchBegin.AddDynamic(this,&ALights::OnTouchBegin);
 	RootComponent = Sprite;
 
@@ -35,8 +36,12 @@ void ALights::Tick( float DeltaTime )
 
 void ALights::OnTouchBegin(ETouchIndex::Type type, UPrimitiveComponent* TouchedComponent) {
 
-	UE_LOG(LogTemp, Warning, TEXT("It works!"));
+	//UE_LOG(LogTemp, Warning, TEXT("%d"),Index);
 
+		if(Sprite->GetSprite()==OffLight){
+			Sprite->SetSprite(LightSprite);
+		}
+	
 
 }
 

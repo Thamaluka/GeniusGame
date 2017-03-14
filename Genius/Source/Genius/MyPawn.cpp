@@ -41,3 +41,6 @@ void AMyPawn::SetupPlayerInputComponent(class UInputComponent* InputComponent)
 
 }
 
+
+
+
