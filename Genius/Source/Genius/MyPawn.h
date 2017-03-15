@@ -24,11 +24,23 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
 	
+	
 
 private:
 
 	UPROPERTY(EditAnywhere)
 		UCameraComponent* Camera;
+
+	UPROPERTY(EditAnywhere)
+		class ALights* Blue;
+	UPROPERTY(EditAnywhere)
+		class ALights* Red;
+	UPROPERTY(EditAnywhere)
+		class ALights* Yellow;
+	UPROPERTY(EditAnywhere)
+		class ALights* Green;
+	
+	int RandomNum;
 
 	
 	

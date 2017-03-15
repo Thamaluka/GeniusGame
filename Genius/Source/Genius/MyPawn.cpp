@@ -2,6 +2,7 @@
 
 #include "Genius.h"
 #include "MyPawn.h"
+#include "Lights.h"
 
 
 // Sets default values
@@ -18,12 +19,27 @@ AMyPawn::AMyPawn()
 
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 
+	RandomNum = 1;
+
+	
+
 }
 
 // Called when the game starts or when spawned
 void AMyPawn::BeginPlay()
 {
 	Super::BeginPlay();
+
+		//UE_LOG(LogTemp, Warning, TEXT("Pawn"));
+	
+	if (RandomNum = 1) {
+		if (Blue != nullptr) {
+			Blue->TimeToGlow();
+		}
+		
+	}
+	
+	
 	
 }
 

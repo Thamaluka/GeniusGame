@@ -20,6 +20,10 @@ public:
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
 
+	FORCEINLINE int GetIndex() const { return Index; }
+
+	void TimeToGlow();
+
 private:
 
 	UPROPERTY(EditAnywhere)
@@ -38,5 +42,11 @@ private:
 	UFUNCTION()
 		void OnTouchBegin(ETouchIndex::Type type,
 			UPrimitiveComponent* TouchedComponent);
+
+	FTimerHandle TimerTurnOff;
+
+	void LightsOn();
+	
+
 	
 };

@@ -38,10 +38,23 @@ void ALights::OnTouchBegin(ETouchIndex::Type type, UPrimitiveComponent* TouchedC
 
 	//UE_LOG(LogTemp, Warning, TEXT("%d"),Index);
 
-		if(Sprite->GetSprite()==OffLight){
-			Sprite->SetSprite(LightSprite);
+		if(Sprite->GetSprite()== OffLight){
+			LightsOn();
 		}
 	
 
 }
 
+
+void ALights::LightsOn() {
+	Sprite->SetSprite(LightSprite);
+	GetWorldTimerManager().SetTimer(TimerTurnOff, this,&ALights::TimeToGlow, 0.5f, true);
+}
+
+
+void ALights::TimeToGlow() {
+
+	UE_LOG(LogTemp, Warning, TEXT("Brilhei"));
+	Sprite->SetSprite(OffLight);
+	GetWorldTimerManager().ClearTimer(TimerTurnOff);
+}
