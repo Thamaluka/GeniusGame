@@ -24,7 +24,8 @@ ALights::ALights()
 void ALights::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+
 }
 
 // Called every frame
@@ -48,13 +49,13 @@ void ALights::OnTouchBegin(ETouchIndex::Type type, UPrimitiveComponent* TouchedC
 
 void ALights::LightsOn() {
 	Sprite->SetSprite(LightSprite);
-	GetWorldTimerManager().SetTimer(TimerTurnOff, this,&ALights::TimeToGlow, 0.5f, true);
+	GetWorldTimerManager().SetTimer(TimerTurnOff, this,&ALights::LightsOff, 0.9f, true);
 }
 
 
-void ALights::TimeToGlow() {
+void ALights::LightsOff() {
 
-	UE_LOG(LogTemp, Warning, TEXT("Brilhei"));
+	//UE_LOG(LogTemp, Warning, TEXT("Brilhei"));
 	Sprite->SetSprite(OffLight);
 	GetWorldTimerManager().ClearTimer(TimerTurnOff);
 }

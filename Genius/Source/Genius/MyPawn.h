@@ -40,7 +40,17 @@ private:
 	UPROPERTY(EditAnywhere)
 		class ALights* Green;
 	
-	int RandomNum;
+	int Num;
+	int Sequencie;
+	bool Playing;
+	bool Shine;
+	TArray <int> Numbs;
+
+	FTimerHandle TimerTurnOff;
+
+	void GlowLight();
+	void RandomNum();
+
 
 	
 	

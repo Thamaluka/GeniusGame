@@ -42,7 +42,7 @@ ALightsGrid::ALightsGrid()
 void ALightsGrid::BeginPlay()
 {
 	Super::BeginPlay();
-
+	/*
 	float LocationX = 0.0f;
 	float LocationZ = 0.0f;
 	
@@ -53,13 +53,14 @@ void ALightsGrid::BeginPlay()
 		
 			FVector Location(LocationX, 0.0f, LocationZ);
 			FActorSpawnParameters SpawnParameters;
-			
+
+		
 			switch (i) {
 			case 0:
 				ALights* Light = World->SpawnActor<ALights>(Blue, Location, FRotator::ZeroRotator, SpawnParameters);
 				LocationX += 250.0f;
 				break;
-				/*
+				
 			case 1:
 				ALights* Light = World->SpawnActor<ALights>(Yellow, Location, FRotator::ZeroRotator, SpawnParameters);
 				LocationX += 250.0f;
@@ -72,14 +73,14 @@ void ALightsGrid::BeginPlay()
 				ALights* Light = World->SpawnActor<ALights>(Green, Location, FRotator::ZeroRotator, SpawnParameters);
 				LocationX += 250.0f;
 				break;
-				*/
+				
 			}
 
 			if (i == 1) { LocationZ -= 250.0f; LocationX = 0;}
 
 		}
 	}
-	
+	*/
 	
 }
 

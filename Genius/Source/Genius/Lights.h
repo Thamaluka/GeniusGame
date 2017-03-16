@@ -22,7 +22,8 @@ public:
 
 	FORCEINLINE int GetIndex() const { return Index; }
 
-	void TimeToGlow();
+	void LightsOff();
+	void LightsOn();
 
 private:
 
@@ -45,7 +46,7 @@ private:
 
 	FTimerHandle TimerTurnOff;
 
-	void LightsOn();
+	
 	
 
 	

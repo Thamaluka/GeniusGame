@@ -19,8 +19,8 @@ AMyPawn::AMyPawn()
 
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 
-	RandomNum = 1;
-
+	Playing = true;
+	Sequencie = 1;
 	
 
 }
@@ -29,16 +29,37 @@ AMyPawn::AMyPawn()
 void AMyPawn::BeginPlay()
 {
 	Super::BeginPlay();
+	RandomNum();
+	while(Playing){
+	
 
-		//UE_LOG(LogTemp, Warning, TEXT("Pawn"));
-	
-	if (RandomNum = 1) {
-		if (Blue != nullptr) {
-			Blue->TimeToGlow();
+		for (int l = 0; l < Numbs.Num(); ++l){
+			UE_LOG(LogTemp, Warning, TEXT("%d"),Numbs[l]);
+			switch(Numbs[l]){
+				case 1 :
+				Blue->LightsOn();
+				break;
+
+				case 2 :
+				Green->LightsOn();
+				break;
+			}
+			RandomNum();
 		}
+
+
 		
+		
+
+
+			//GetWorldTimerManager().SetTimer(TimerTurnOff, this,&AMyPawn::GlowLight, 0.5f, true);
+		
+
+		//Playing = false;
 	}
+
 	
+
 	
 	
 }
@@ -57,6 +78,38 @@ void AMyPawn::SetupPlayerInputComponent(class UInputComponent* InputComponent)
 
 }
 
+void AMyPawn::RandomNum(){
+	Num = FMath::RandRange(1,4);
+	Numbs.Add(Num);
+		//UE_LOG(LogTemp, Warning, TEXT("%d"),Num);
 
+}
+
+void AMyPawn::GlowLight(){
+	GetWorldTimerManager().ClearTimer(TimerTurnOff);
+	switch(Num){
+		case 1 :
+		Blue->LightsOn();
+		UE_LOG(LogTemp, Warning, TEXT("Brilhei Azul"));
+		break;
+
+		case 2 :
+		Green->LightsOn();
+		UE_LOG(LogTemp, Warning, TEXT("Brilhei Verde"));
+		break;
+
+		case 3 :
+		Yellow->LightsOn();
+		UE_LOG(LogTemp, Warning, TEXT("Brilhei Amarelo"));
+		break;
+
+		case 4 :
+		Red->LightsOn();
+		UE_LOG(LogTemp, Warning, TEXT("Brilhei Vermelho"));
+		break;
+	}
+
+	
+}
 
 
